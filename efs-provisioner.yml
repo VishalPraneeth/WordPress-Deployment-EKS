@@ -20,7 +20,7 @@ spec:
           image: quay.io/external_storage/efs-provisioner:v0.1.0
           env:
             - name: FILE_SYSTEM_ID
-              value: fs-8f75e05e
+              value: fs-8f75e05e #change env from DNS
             - name: AWS_REGION
               value: ap-south-1
             - name: PROVISIONER_NAME
@@ -31,5 +31,5 @@ spec:
       volumes:
         - name: pv-volume
           nfs:
-            server: fs-8f75e05e.efs.ap-south-1.amazonaws.com
+            server: fs-8f75e05e.efs.ap-south-1.amazonaws.com #paste DNS id
             path: /
