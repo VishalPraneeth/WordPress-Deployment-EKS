@@ -89,7 +89,7 @@ resource "aws_eks_node_group" "node1" {
   subnet_ids      = ["subnet-859beec9", "subnet-b668d7cd","subnet-ba5b5cd2"]
   disk_size       = 40
   remote_access {
-   ec2_ssh_key = "rohiteks-key"
+   ec2_ssh_key = "vishaleks-key"
    source_security_group_ids = ["sg-06981c6597718708c"]
   }
   scaling_config {
@@ -111,7 +111,7 @@ resource "aws_eks_node_group" "node2" {
   subnet_ids      = ["subnet-859beec9", "subnet-b668d7cd","subnet-ba5b5cd2"]
   disk_size       = 40
   remote_access {
-   ec2_ssh_key = "rohiteks-key"
+   ec2_ssh_key = "vishaleks-key"
    source_security_group_ids = ["sg-06981c6597718708c"]
   }
   scaling_config {
@@ -133,7 +133,7 @@ resource "aws_eks_node_group" "node3" {
   subnet_ids      = ["subnet-859beec9", "subnet-b668d7cd","subnet-ba5b5cd2"]
   disk_size       = 40
   remote_access {
-   ec2_ssh_key = "rohiteks-key"
+   ec2_ssh_key = "vishaleks-key"
    source_security_group_ids = ["sg-06981c6597718708c"]
   }
   scaling_config {
