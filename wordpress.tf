@@ -33,13 +33,14 @@ resource "aws_iam_role_policy_attachment" "AmazonEKSServicePolicy" {
   role       = aws_iam_role.eks_cluster.name
 }
 
+
 # cluster creation 
 resource "aws_eks_cluster" "aws_eks" {
   name     = "ViRocluster"
   role_arn = aws_iam_role.eks_cluster.arn
 
   vpc_config {
-    subnet_ids = ["subnet-859beec9","subnet-b668d7cd","subnet-ba5b5cd2"]
+    subnet_ids = ["subnet-0d599dd199f636f92","subnet-0b2d7f33ad355e327","subnet-0c6e0383cef9452f6"]
   }
 
   tags = {
@@ -86,11 +87,11 @@ resource "aws_eks_node_group" "node1" {
   node_group_name = "ng-1"
   instance_types   =["t2.micro"]
   node_role_arn   = aws_iam_role.eks_nodes.arn
-  subnet_ids      = ["subnet-859beec9", "subnet-b668d7cd","subnet-ba5b5cd2"]
+  subnet_ids      = ["subnet-0d599dd199f636f92", "subnet-0b2d7f33ad355e327","subnet-0c6e0383cef9452f6"]
   disk_size       = 40
   remote_access {
-   ec2_ssh_key = "vishaleks-key"
-   source_security_group_ids = ["sg-06981c6597718708c"]
+   ec2_ssh_key = "vishal-eks"
+   source_security_group_ids = ["sg-043f6cd749693e8c1"]
   }
   scaling_config {
     desired_size = 1
@@ -108,11 +109,11 @@ resource "aws_eks_node_group" "node2" {
   node_group_name = "ng-2"
   instance_types   =["t2.micro"]
   node_role_arn   = aws_iam_role.eks_nodes.arn
-  subnet_ids      = ["subnet-859beec9", "subnet-b668d7cd","subnet-ba5b5cd2"]
+  subnet_ids      = ["subnet-0d599dd199f636f92", "subnet-0b2d7f33ad355e327","subnet-0c6e0383cef9452f6"]
   disk_size       = 40
   remote_access {
-   ec2_ssh_key = "vishaleks-key"
-   source_security_group_ids = ["sg-06981c6597718708c"]
+   ec2_ssh_key = "vishal-eks"
+   source_security_group_ids = ["sg-043f6cd749693e8c1"]
   }
   scaling_config {
     desired_size = 1
@@ -130,11 +131,11 @@ resource "aws_eks_node_group" "node3" {
   node_group_name = "ng-3"
   instance_types   =["t2.micro"]
   node_role_arn   = aws_iam_role.eks_nodes.arn
-  subnet_ids      = ["subnet-859beec9", "subnet-b668d7cd","subnet-ba5b5cd2"]
+  subnet_ids      = ["subnet-0d599dd199f636f92", "subnet-0b2d7f33ad355e327","subnet-0c6e0383cef9452f6"]
   disk_size       = 40
   remote_access {
-   ec2_ssh_key = "vishaleks-key"
-   source_security_group_ids = ["sg-06981c6597718708c"]
+   ec2_ssh_key = "vishal-eks"
+   source_security_group_ids = ["sg-043f6cd749693e8c1"]
   }
   scaling_config {
     desired_size = 1
@@ -158,20 +159,20 @@ resource "aws_efs_file_system" "efs" {
 
 resource "aws_efs_mount_target" "subnet1" {
   file_system_id = aws_efs_file_system.efs.id
-  subnet_id = "subnet-859beec9"
-  security_groups = ["sg-06981c6597718708c"]
+  subnet_id = "subnet-0d599dd199f636f92"
+  security_groups = ["sg-043f6cd749693e8c1"]
 }
 
 resource "aws_efs_mount_target" "subnet2" {
   file_system_id = aws_efs_file_system.efs.id
-  subnet_id = "subnet-b668d7cd"
-  security_groups = ["sg-06981c6597718708c"]
+  subnet_id = "subnet-0b2d7f33ad355e327"
+  security_groups = ["sg-043f6cd749693e8c1"]
 }
 
 resource "aws_efs_mount_target" "subnet3" {
   file_system_id = aws_efs_file_system.efs.id
-  subnet_id = "subnet-ba5b5cd2"
-  security_groups = ["sg-06981c6597718708c"]
+  subnet_id = "subnet-0c6e0383cef9452f6"
+  security_groups = ["sg-043f6cd749693e8c1"]
 }
 
 resource "aws_efs_access_point" "efs_ap" {
