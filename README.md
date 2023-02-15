@@ -8,3 +8,9 @@
 - Continuous Monitoring Tools(Prometheus+Grafana)
 
 ![Hybrid Cloud](1_lVdDzDl6Clt1Vg6Uifxvhw.gif)
+
+## The procedure of this project is explained step by step in this blog:
+[Deploying a WordPress application(Full Stack) on AWS](https://vishal7771.hashnode.dev/deploying-a-wordpress-applicationfull-stack-on-aws-using-eks)
+
+# Author 
+[Vishal](https://github.com/VishalPraneeth)
